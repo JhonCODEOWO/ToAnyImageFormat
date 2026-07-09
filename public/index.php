@@ -59,6 +59,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }, $transformedFiles);
 
         $builder = new ZipArchiveBuilder($zipArray);
+        $zipPath = $builder->build();
+
+        //Download the zip file
+        Functions::downloadTemporaryFileToClient(
+            $zipPath, 
+            'application/zip', 
+            $builder->zipName
+        );
     }
 }
 ?>
