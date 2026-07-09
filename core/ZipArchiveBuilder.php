@@ -9,6 +9,7 @@ class ZipArchiveBuilder {
     private ZipArchive $zipArchive; 
     private mixed $buildResult = null;
     private string $zipDirectory;
+    public string $zipName;
     
     /**
      * __construct Initialize the builder with all the files included in the array arg.
@@ -21,6 +22,7 @@ class ZipArchiveBuilder {
         $directory = __DIR__ . "/../public/$zipName";
 
         $this->zipDirectory = $directory;
+        $this->zipName = $zipName;
         $this->zipArchive = new ZipArchive();
 
         $result = $this->zipArchive->open($directory, ZipArchive::CREATE | ZipArchive::OVERWRITE);
