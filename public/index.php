@@ -67,6 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'application/zip', 
             $builder->zipName
         );
+
+        header('Location: index.php');
     }
 }
 ?>
@@ -88,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endforeach?>
         <div>
             <label for="Imágenes para convertir"></label>
-            <input type="file" name="images[]" id="images" multiple>
+            <input type="file" name="images[]" id="images" multiple accept=".jpeg, .jpg, .png">
         </div>
         <div>
             <label for="">Keep original file names</label>
